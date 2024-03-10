@@ -1,0 +1,1 @@
+python eval_stage2.py -r=experiments/CelebAHQ-large/ResidualMLP-L8-D4096-scale1-epoch1000 --stage2_epoch=999 --stage1_path=experiments/CelebAHQ-large/LatentMixtureINR-K384L5W128H512-lr1e-4+1.0-lrschedule-batch32-epoch800 --stage1_epoch=799

@@ -1,0 +1,57 @@
+dataset:
+  dataset: shapenet
+  image_resolution: 64
+  data_dimension: 256
+
+stage2:
+  hparams_diffusion:
+    steps: 1000
+    learn_sigma: False
+    noise_schedule: squaredcos_cap_v2
+    rescale_learned_sigmas: False
+    predict_xstart: True
+
+  hparams_model:
+    net_type: functa
+    num_layers: 8
+    num_hid_groups: 16
+    num_hid_channels: 4096
+    num_channels: 512
+    activation: 'silu'
+
+    num_time_layers: 1
+    num_time_emb_channels: 64
+
+  feat_type: context
+  feat_std_scale: 1.0
+
+  hparams_metainr:
+    width: 64
+    depth: 4
+    w0: 50
+    k_mixtures: 256
+    latent_channels: 512
+    image_resolution: 64
+    in_channels: 3
+    out_channels: 1
+    use_meta_sgd: True
+    pred_type: voxel
+
+optimizer:
+  use_amp: False
+  use_ema: True
+  opt_type: adamw
+  base_lr: 1.0e-4
+  grad_clip_norm: 0.0  # means don't clip
+  betas: [0.9, 0.999]
+  warmup:
+    multiplier: 1
+    warmup_epoch: 0.0  
+    buffer_epoch: 0
+    min_lr: 0.0
+    mode: fix
+    start_from_zero: True
+
+experiment:
+  epochs: 1000
+  save_ckpt_freq: 1000

@@ -1,0 +1,3 @@
+python main_stage1_cavia.py -m=experiments/CelebAHQ-large/LatentMixtureINR-K384L5W128H512-lr1e-4+1.0-lrschedule-batch32-epoch800/metainits/epoch799.pth --model_type=latent0.0001-mixtureinr-layerwise --hidden_features=512 --k_mixtures=384 --use_meta_sgd --width=128 --depth=5 --num_inner=3 --lr_outer=1e-4 --lr_inner=1.0 --batch_size=32 --eval
+python main_stage1_cavia.py -m=experiments/CelebAHQ-large/LatentMixtureINR-K384L5W128H512-lr1e-4+1.0-lrschedule-batch32-epoch800/metainits/epoch799.pth --model_type=latent0.0001-mixtureinr-layerwise --hidden_features=512 --k_mixtures=384 --use_meta_sgd --width=128 --depth=5 --num_inner=3 --lr_outer=1e-4 --lr_inner=1.0 --batch_size=32 --eval --split=test
+

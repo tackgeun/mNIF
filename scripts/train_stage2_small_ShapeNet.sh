@@ -1,0 +1,1 @@
+python main_stage2.py -r=results/ShapeNet-small -c=configs/ShapeNet64px-ResidualMLP-L8-D4096-scale1-epoch1000-MetaLatentMixtureINR-K256L4W64H512-W0-50-epochs800.yaml --checkpoint_path=experiments/ShapeNet-small/LatentMixtureINR-K256L4W64H512-W0-50-subsampling4096-lr1e-4+1.0-lrschedule-batch32-epoch800/ --stage1_epoch=799

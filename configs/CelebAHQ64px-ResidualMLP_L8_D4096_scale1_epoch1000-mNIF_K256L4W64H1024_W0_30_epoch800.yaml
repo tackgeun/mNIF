@@ -1,0 +1,55 @@
+dataset:
+  dataset: celebahq
+  image_resolution: 64
+  data_dimension: 1024
+
+stage2:
+  hparams_diffusion:
+    steps: 1000
+    learn_sigma: False
+    noise_schedule: squaredcos_cap_v2
+    rescale_learned_sigmas: False
+    predict_xstart: True
+
+  hparams_model:
+    net_type: functa
+    num_layers: 8
+    num_hid_groups: 16
+    num_hid_channels: 4096
+    num_channels: 1024
+    activation: 'silu'
+
+    num_time_layers: 1
+    num_time_emb_channels: 64
+
+  feat_type: context
+  feat_std_scale: 1.0
+
+  hparams_metainr:
+    width: 64
+    depth: 4
+    k_mixtures: 256
+    latent_channels: 1024
+    in_channels: 2
+    out_channels: 3
+    use_meta_sgd: True
+    pred_type: image
+
+optimizer:
+  use_amp: False
+  use_ema: True
+  opt_type: adamw
+  base_lr: 1.0e-4
+  grad_clip_norm: 0.0  # means don't clip
+  betas: [0.9, 0.999]
+  warmup:
+    multiplier: 1
+    warmup_epoch: 0.0  
+    buffer_epoch: 0
+    min_lr: 0.0
+    mode: fix
+    start_from_zero: True
+
+experiment:
+  epochs: 1000
+  save_ckpt_freq: 1000

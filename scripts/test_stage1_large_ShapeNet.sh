@@ -1,0 +1,3 @@
+python main_stage1_cavia.py -m=experiments/ShapeNet-large/LatentMixtureINR-K512L5W128H1024-subsampling4096-lr1e-4+1.0-lrschedule-batch32-epoch400/metainits/epoch399.pth --model_type=latent0.0001-mixtureinr-layerwise --hidden_features=1024 --k_mixtures=512 --use_meta_sgd --width=128 --depth=5 --num_inner=3 --lr_outer=1e-4 --lr_inner=1.0 --batch_size=32 --dataset=shapenet --eval
+python main_stage1_cavia.py -m=experiments/ShapeNet-large/LatentMixtureINR-K512L5W128H1024-subsampling4096-lr1e-4+1.0-lrschedule-batch32-epoch400/metainits/epoch399.pth --model_type=latent0.0001-mixtureinr-layerwise --hidden_features=1024 --k_mixtures=512 --use_meta_sgd --width=128 --depth=5 --num_inner=3 --lr_outer=1e-4 --lr_inner=1.0 --batch_size=32 --dataset=shapenet --eval --split=test
+
